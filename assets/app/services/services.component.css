@@ -1,0 +1,26 @@
+
+img {
+   height: auto;
+   width:96px;
+}
+span{
+  color:red;
+}
+.side{
+   border-left: 2px solid black;
+}
+.side1{
+   /*background-color: #80bfff;*/
+   padding:10px;
+}
+.liner{
+  background-color:#80bfff;;
+  border-width: 3px;
+}
+span img{
+  height: auto;
+  width:48px;
+}
+.title-styles{
+   line-height: 45px;
+}

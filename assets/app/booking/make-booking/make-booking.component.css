@@ -1,0 +1,70 @@
+
+img {
+   height: auto;
+   width:48px;
+}
+label{
+   color:#428bca;
+}
+button span {
+   color:#337AB7;/*#428bca;*/
+}
+.choose-date{
+   position: relative;
+   color:black;
+}
+.choose-time{
+   /*display: inline;*/
+}
+.choose-time button{
+   float:left;
+}
+.back{
+
+}
+.date-cell p{
+   margin-bottom: -10px;
+}
+.date-cell {
+   /*display: inline-block;*/
+}
+.next{
+  position:absolute;
+  right: 0;
+}
+.time{
+   float:left;
+   margin-right: 10px;
+}
+.size1, .size3{
+   width:150px;
+}
+.size2{
+   width:80px;
+}
+.other-links{
+   float:right;
+}
+label a{
+   text-decoration: underline;
+}
+
+@media (min-width: 576px) {
+  .size1, .size3{
+     width:175px;
+  }
+  .size2{
+     width:100px;
+  }
+ }
+@media (min-width: 768px) {
+  .size3{
+     width:190px;
+  }
+ }
+@media (min-width: 992px) {
+
+}
+@media (min-width: 1200px) {
+
+}

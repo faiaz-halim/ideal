@@ -1,0 +1,85 @@
+
+header{
+  background-color: #0B0A0A;
+  /*height: 90px;*/
+  /*overflow: hidden;*/
+  position: fixed;
+  top:0;
+  width:100%;
+ z-index: 99;
+
+}
+/*.container{
+  position: relative;
+}*/
+main{
+  margin-top: 100px;
+}
+main img {
+   height: auto;
+   width: 100%;
+}
+.liner{
+  background-color:black;
+  border-width: 5px;
+}
+.other-parts{
+  background-color: #f0f0f5;/*#e6e6ff;/*#99ccff; /*#b3d9ff;/*#cce6ff;/*#e6f2ff;*/
+}
+.other-parts img{
+    height:auto;
+    width:48px;
+}
+.makes-div{
+   display: inline-block;
+
+}
+.makes{
+  background: url("/assets/images/car-makes.png") no-repeat;
+  display: inline-block;
+  height: 76px;
+  margin-right: 10px;
+  transform:scale(0.725);
+  width: 96px;
+}
+
+footer{
+   background-color: #003366;
+
+}
+@media (min-width: 576px) {
+  .main-part{
+      height:720px;
+   }
+   .other-parts img{
+       height:auto;
+       width:64px;
+   }
+   .makes{
+      transform:scale(0.825);
+   }
+ }
+@media (min-width: 768px) {
+  .main-part{
+      height:540px;
+   }
+   .other-parts img{
+       height:auto;
+       width:80px;
+   }
+   .makes{
+      transform:scale(0.925);
+   }
+ }
+@media (min-width: 992px) {
+  .other-parts img{
+      height:auto;
+      width:96px;
+  }
+  .makes{
+     transform:scale(1);
+  }
+}
+@media (min-width: 1200px) {
+
+}

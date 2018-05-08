@@ -1,0 +1,15 @@
+
+.main-div{
+  background-color: white;
+  background-image: url("../../../assets/images/ideal-auto.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:650px;
+  width:101.5%;
+}
+form{
+   width:80%;
+}
+.home-header{
+
+}

@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  font-size: 0.8rem;
+}
+h1,h2, h3{
+    font-family: 'Fjalla One', sans-serif;
+}
+p{
+    font-family: 'Bitter', serif;
+}
+h4,h5,h6{
+  font-family: 'Kanit', sans-serif;
+}
+#wait{
+  width:64px;
+  height:auto;
+  display: block;
+  margin: 200px auto;
+}
+.liner{
+  background-color:black;
+  border-width: 5px;
+  margin-top:0;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.error-message{
+   color:red;
+}
+label{
+   color:#428bca;
+}
+
+@media (min-width: 576px) {
+    html {
+      font-size:0.8rem;
+    }
+ }
+@media (min-width: 768px) {
+
+}
+@media (min-width: 992px) {
+  html {
+    font-size: 1.0rem;
+  }
+}
+@media (min-width: 1200px) {
+
+}

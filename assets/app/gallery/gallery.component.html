@@ -1,0 +1,23 @@
+<h4 class="mb-2">Gallery of Images</h4>
+<div class="row m-3 ">
+   <div class="col-md-7 left bg-info">
+     <ngb-carousel *ngIf="images">
+       <div *ngFor="let image of images" >
+           <ng-template ngbSlide>
+             <img [src]="image" class="img-fluid" alt="">
+             <div class="carousel-caption">
+               <h3>{{c_header}}</h3>
+               <p></p>
+             </div>
+           </ng-template>
+       </div>
+    </ngb-carousel>
+   </div>
+   <div class="col-md-5 right mt-2" >
+     <div *ngFor="let album of albums">
+       <button type="button" class="btn btn-outline-primary m-1" (click)="setAlbum(album)">
+            {{album.name}}
+        </button>
+     </div>
+   </div>
+</div>

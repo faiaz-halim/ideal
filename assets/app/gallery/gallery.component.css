@@ -1,0 +1,10 @@
+.left{
+   border-right: 2px solid black;
+}
+.right{
+    height:375px;
+    overflow-y: scroll;
+}
+button{
+   width:180px;
+}

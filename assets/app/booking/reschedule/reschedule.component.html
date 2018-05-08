@@ -1,0 +1,51 @@
+<div class="my-2">
+   <h4 class="text-primary">Reshedule Booking</h4>
+   <p> Booking can only be rescheduled 3 hours before scheduled time</p>
+</div>
+<hr>
+<p class="pl-3"> Enter email address supplied when booking</p>
+<form novalidate [formGroup]="cancelForm" (ngSubmit)="onSubmitCancel()" class=col-md-6>
+  <div class="row">
+     <div class="form-group col-8">
+       <label>Email</label>
+       <input type="text" class="form-control" formControlName="email" placeholder="email">
+       <div *ngIf="!cancelForm.get('email').valid && cancelForm.get('email').touched">
+          <span class="error-message" *ngIf="cancelForm.get('email').hasError('required') ">
+                Email required!
+          </span>
+          <span class="error-message" *ngIf="!cancelForm.get('email').hasError('required')
+                      && cancelForm.get('email').hasError('email') "> Email is invalid!
+          </span>
+        </div>
+    </div>
+    <div class="continue col-4 mt-4 p-2">
+      <button type="submit" class="btn btn-primary" [disabled]="cancelForm.invalid">
+         continue
+      </button>
+    </div>
+  </div>
+</form>
+<div class="col-md-6 text-primary">
+   <p>{{isCustomer}}</p>
+</div>
+<div *ngIf="showBooked">
+  <h6 class="text-primary">Booking Details</h6>
+  <hr>
+  <div class="col-md-6">
+     <p>{{customer.name}} <span class="ml-3">{{customer.email}}</span></p>
+     <hr>
+     <div *ngFor="let booked of bookedAhead">
+        <p>{{booked.bookingDate}} <span class="ml-3"> {{booked.time}}</span></p>
+        <p>{{booked.vehicle}} <span class="ml-3"> {{booked.description}}</span></p>
+        <hr>
+        <button type="button" class="btn btn-primary size1" (click)="onRescheduleBooking(booked.id)">
+          Rescedule Booking
+        </button>
+        <!--<button type="button" class="btn btn-primary size1" (click)="onCancelRescedule()">
+          Back
+        </button>-->
+        <hr>
+    </div>
+  </div>
+  <hr>
+</div>

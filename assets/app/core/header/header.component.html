@@ -1,0 +1,43 @@
+<div class="row py-1">
+  <div class="col-lg-5 logo">
+    <img class="img-fluid" src="/assets/images/logo.png" alt="ideal automotive"
+    contenteditable="false">
+  </div>
+  <div class="col-lg-7">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+       <!--<a class="navbar-brand" href="#">Navbar</a>-->
+       <button class="navbar-toggler" type="button" data-toggle="collapse"
+               data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+               aria-expanded="false" aria-label="Toggle navigation" (click)="toggleState()">
+               <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse mt-1" [ngClass]="{ 'in': isIn }">
+          <div class="navbar-nav">
+             <a class="nav-item nav-link p-md-3" routerLink=""
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Home
+             </a>
+             <a class="nav-item nav-link p-md-3" routerLink="/services"
+                routerLinkActive="active">Services
+             </a>
+             <a class="nav-item nav-link p-md-3" routerLink="/booking"
+                routerLinkActive="active">Booking
+              </a>
+             <a class="nav-item nav-link p-md-3" routerLink="/disclaimer"
+                routerLinkActive="active">Disclaimer
+             </a>
+             <a class="nav-item nav-link p-md-3" routerLink="/reviews"
+                routerLinkActive="active">Reviews
+              </a>
+             <a class="nav-item nav-link p-md-3" routerLink="/gallery"
+                routerLinkActive="active">Gallery
+              </a>
+             <!--<a class="nav-item nav-link" routerLink="/partners"
+                routerLinkActive="active">Partners
+              </a>-->
+
+          </div>
+       </div>
+    </nav>
+  </div>
+</div>

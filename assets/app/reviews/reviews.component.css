@@ -1,0 +1,48 @@
+span{
+   color:#0B0A0A;
+}
+.review-div{
+  height:450px;
+   overflow-y: scroll;
+}
+.reviews{
+   display: inline-block;
+
+}
+.reviews-hr{
+   background-color: blue;
+   border-width: 2px;
+}
+.rev{
+   /*display: inline;*/
+   height: 200px; /*320px;*/
+   width:320px;
+   margin:5px;
+   padding:5px;
+   border: 2px solid black;
+   border-radius: 5px;
+
+}
+.one{
+   height:50px;
+}
+.two{
+   height:30px;
+}
+.heading-span{
+   font-size:1rem;
+}
+.custReview{
+
+  border: 1px solid black;
+  border-radius: 5px;
+  height:100px;
+  padding: 10px;
+}
+.comment{
+
+  border: 1px solid black;
+  border-radius: 5px;
+  height:100px;
+  padding: 10px;
+}

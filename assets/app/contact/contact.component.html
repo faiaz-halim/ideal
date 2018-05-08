@@ -1,0 +1,86 @@
+<h4 class="text-primary my-3">Our Contact</h4>
+<hr>
+<div class="row">
+   <div class="col-md-6">
+      <div class="mb-5">
+          <h5 class="my-3">Call</h5>
+          <p> Phone: <span class="text-primary">0297262301</span></p>
+          <p> Mobile: <span class="text-primary">0425554670</span></p>
+
+      </div>
+      <div class="mb-5">
+          <h5 class="my-3">Email</h5>
+          <p> Phone: <span class="text-primary">idealautomotive@gmail.com</span></p>
+          <p> Mobile: <span class="text-primary">info@idealautomotive.com</span></p>
+
+      </div>
+      <div class="">
+          <h5 class="my-3">Mail</h5>
+          <p> Phone: <span class="text-primary">Unit 4/5, 7 Malta Street</span></p>
+          <p> Mobile: <span class="text-primary">Fairfield East, NSW 2165</span></p>
+
+      </div>
+   </div>
+   <div class="col-md-6">
+      <h5 class="my-3">Send us a message</h5>
+       <form novalidate [formGroup]="messageForm" (ngSubmit)="onSubmit(content)">
+         <div class="form-group">
+           <label for="name"> Name</label>
+           <input type="text" class="form-control" formControlName="name" placeholder="name">
+           <span class="error-message" *ngIf="messageForm.get('name').touched
+                       &&  messageForm.get('name').hasError('required')">
+                Enter a name.
+           </span>
+         </div>
+         <div class="form-group">
+           <label for="email"> Email</label>
+           <input type="text" class="form-control" formControlName="email" placeholder="email">
+           <div *ngIf="!messageForm.get('email').valid && messageForm.get('email').touched">
+              <span class="error-message" *ngIf="messageForm.get('email').hasError('required') ">
+                    Email required!
+              </span>
+              <span class="error-message" *ngIf="!messageForm.get('email').hasError('required')
+                          && messageForm.get('email').hasError('email') "> Email is invalid!
+              </span>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="subject"> Subject</label>
+          <input type="text" class="form-control" formControlName="subject" placeholder="subject">
+          <span class="error-message" *ngIf="messageForm.get('subject').touched
+                      &&  messageForm.get('subject').hasError('required')">
+               Enter a subject.
+          </span>
+        </div>
+        <div class="form-group">
+           <label for="body"> Message </label>
+           <textarea class="form-control" formControlName="body" rows="5"></textarea>
+           <span class="error-message" *ngIf="messageForm.get('body').touched
+                       &&  messageForm.get('body').hasError('required')">
+                Enter a subject.
+           </span>
+        </div>
+        <ng-template #content let-c="close" let-d="dismiss">
+           <div class="modal-header">
+             <h4 class="modal-title">Booking Confimation</h4>
+             <button type="button" class="close" aria-label="Close" (click)="onCloseModal('Cross click')">
+             <!--(click)="d('Cross click')">-->
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div class="modal-body">
+             <p>{{confirmMesage1}}</p>
+             <p>{{confirmMesage2}}</p>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-outline-dark" (click)="onCloseModal('Close click')">Close</button>
+           </div>
+        </ng-template>
+        <div class="mt-4 py-2">
+          <button type="submit" class="btn btn-primary" [disabled]="messageForm.invalid">
+             Submit
+          </button>
+        </div>
+      </form>
+   </div>
+</div>

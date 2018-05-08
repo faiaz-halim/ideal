@@ -1,0 +1,19 @@
+h5{
+  color:white;
+}
+p{
+  color:#80bfff;
+}
+ .menu{
+    text-decoration:none;
+ }
+ .menu a{
+     color: white;/*#80bfff;*/
+
+ }
+  .menu a:hover {
+     color: lightblue;
+ }
+ .menu a:active {
+     color:blue;
+ }

@@ -1,0 +1,54 @@
+<h4 class="text-primary mb-1">About us</h4>
+<ngb-tabset>
+  <ngb-tab title="About Us">
+    <ng-template ngbTabContent>
+      <div class="row my-2">
+         <div class="col-md-7">
+            <p>
+               Ideal Automotive is the leading auto repair shop in Fairfield metropolis NSW. We
+               provide extraordinary customer service and high quality auto repair
+               that exceeds all competition.
+            </p>
+            <p>
+               We exist to help our customers care for and extend
+               the life of their automobile investments.
+             </p>
+             <p>
+                Ideal Auto Motive operates by the following guiding principles:
+                <span class="text-primary">Honesty, Integrity, Customer First, Quality, Diversity and Innovation.</span>
+             </p>
+             <p>
+                The cost of services are reasonable and affordable. We source replacement parts
+                for you at great and affordable prices. Replacements parts are genuine with warranty
+                and always of the right quality and standard.
+             </p>
+            <p> We are time conscious, so we don't delay your jobs. We have partners that deliver
+                parts to us in record time to help us make sure your repairs are finished quickly.
+            </p>
+            <h5 class="text-primary">
+               We look forward to seeing you at our workshop.
+            </h5>
+        </div>
+        <div class="col-md-5 mt-4">
+           <img src="/assets/images/gallery/workshop/ideal-4.jpg" class="img-fluid" alt="">
+        </div>
+     </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Our Team">
+    <ng-template ngbTabContent>
+      <div class="mx-3" *ngFor="let team of teamMembers">
+        <div class="row each mb-3">
+            <div class="col-8 mt-3">
+               <img [src]="team.picture" class="img-fluid" alt="">
+            </div>
+            <div class="col-4 mt-5">
+               <h5 class="text-primary"> {{ team.name }} </h5>
+               <p> {{ team.position }} </p>
+            </div>
+         </div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+
+</ngb-tabset>

@@ -1,0 +1,116 @@
+<ngb-tabset>
+  <ngb-tab title="See reviews">
+    <ng-template ngbTabContent>
+        <div class="row pt-2">
+           <div class="col-5">
+              <h4>Total Reviews : <span class="text-primary">{{totalReviews}} </span></h4>
+           </div>
+           <div class="col-5">
+              <h4>Overall Rating :
+                 <span class="text-primary"><ngb-rating [(rate)]="overallRate"></ngb-rating></span>
+              </h4>
+           </div>
+        </div>
+        <hr class="reviews-hr">
+        <div class="review-div" *ngIf="reviews">
+           <!--<hr class="reviews-hr">-->
+           <div class="reviews" *ngFor= "let review of reviews" >
+             <div class="rev">
+               <div class="row one">
+                  <div class="col-7">
+                     <p>{{review.name}}</p>
+                  </div>
+                  <div class="col-5">
+                     <p>
+                         <span><ngb-rating [(rate)]="review.rating"></ngb-rating></span>
+                     </p>
+                  </div>
+               </div>
+               <div class="row two">
+                  <div class="col-7">
+                     <p>{{review.carMake}}</p>
+                  </div>
+                  <div class="col-5">
+                     <p>{{review.carModel}}</p>
+                  </div>
+               </div>
+
+               <div class="custReview bg-light mb-2">
+                   <p class="text-primary ">{{review.myReview}}</p>
+               </div>
+               <!--<div class="comment">
+                 <p class="text-primary "><span> {{review.comment}}</span>
+                           ({{review.commentBy}})
+                 </p>
+               </div>-->
+
+
+             <!--<hr class="reviews-hr">-->
+             </div>
+           </div>
+        </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Write a review">
+    <ng-template ngbTabContent>
+      <form novalidate [formGroup]="reviewForm" (ngSubmit)="onSubmit(content)" class=col-md-6>
+        <div class="form-group">
+          <label for="name"> Your Name</label>
+          <input type="text" class="form-control" formControlName="name" placeholder="name">
+          <span class="error-message" *ngIf="reviewForm.get('name').touched
+                      &&  reviewForm.get('name').hasError('required')">
+               Enter a name.
+          </span>
+        </div>
+        <div class="row" >
+          <div class="form-group col-6" >
+             <label for="make">Car Make</label>
+             <select class="form-control" formControlName="make" #c [(ngModel)]="makeSetter"
+              (change)="setCar(c.value)">
+                <option *ngFor="let car of cars; index as i" [value]="car.name">{{car.name}}</option>
+             </select>
+             <span class="error-message" *ngIf="reviewForm.get('make').touched
+                         &&  reviewForm.get('make').hasError('required')">
+                  Enter Car Make
+             </span>
+          </div>
+          <div class="form-group col-6">
+             <label for="model"> Car Model</label>
+             <select class="form-control" formControlName="model" #s [(ngModel)]="modelSetter">
+               <option *ngFor="let model of cars[index].models" [value]="model">{{model}}</option>
+             </select>
+             <div class="form-group" *ngIf="s.value == 'Other'">
+                <label>Other: </label>
+                <input type="text" class="form-control" formControlName="other" placeholder="Enter model">
+             </div>
+          </div>
+        </div>
+        <ngb-rating [(rate)]="currentRate" class="text-primary" [readonly]="readonly"></ngb-rating>
+         <pre>Rate: <b>{{currentRate}}</b></pre>
+         <div class="form-group">
+            <label>Write Review</label>
+            <textarea class="form-control" formControlName="text" rows="4"></textarea>
+         </div>
+         <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Review</h4>
+              <button type="button" class="close" aria-label="Close" (click)="onCloseModal('Cross click')">
+              <!--(click)="d('Cross click')">-->
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>{{confirmMesage1}}</p>
+              <p>{{confirmMesage2}}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="onCloseModal('Close click')">Close</button>
+            </div>
+         </ng-template>
+         <button type="submit" class="btn btn-primary mb-2" [disabled]="reviewForm.invalid">
+           Submit
+         </button>
+      </form>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
