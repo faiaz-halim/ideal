@@ -14,7 +14,7 @@ export class GalleryService {
   constructor(private http: Http ) {}
 
   getAlbums() {
-      return this.http.get('http://localhost:3000/albums')
+      return this.http.get('https://idealautomotive.com.au/albums')
           .map((response: Response) => {
               const albums = response.json().obj;
               let transformedAlbums: Album[] = [];
@@ -29,7 +29,7 @@ export class GalleryService {
           .catch((error: Response) => Observable.throw(error.json()));
   }
   addAlbum(result:Album){
-      const url = 'http://localhost:3000/albums';
+      const url = 'https://idealautomotive.com.au/albums';
       let body = JSON.stringify(result);
       return this.http.post(url, body, {headers: this.headers})
         .map(response => response.json());
