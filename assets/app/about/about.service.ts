@@ -14,7 +14,7 @@ export class AboutService {
   constructor(private http: Http ) {}
 
   getTeamMembers() {
-      return this.http.get('http://localhost:3000/teamMembers')
+      return this.http.get('https://idealautomotive.com.au/teamMembers')
           .map((response: Response) => {
               const teams = response.json().obj;
               let transformedTeams: TeamMember[] = [];
@@ -31,7 +31,7 @@ export class AboutService {
 
   //----------------------------------------------------------
   addTeam(result:TeamMember){
-      const url = 'http://localhost:3000/teamMembers';
+      const url = 'https://idealautomotive.com.au/teamMembers';
       let body = JSON.stringify(result);
       return this.http.post(url, body, {headers: this.headers})
         .map(response => response.json());
