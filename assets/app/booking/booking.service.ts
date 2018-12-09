@@ -11,13 +11,13 @@ import { CarDetails } from './CarDetails.model';
 
 @Injectable()
 export class BookingService {
-    baseUrl: string = 'http://localhost:4568';
+    baseUrl: string = 'https://idealautomotive.com.au';
     headers = new Headers({'Content-Type': 'application/json'});
     customer : Customer;
     constructor(private http: Http) {}
 
     getCars() {
-        return this.http.get('http://localhost:3000/cars')
+        return this.http.get('https://idealautomotive.com.au/cars')
             .map((response: Response) => {
                 const cars = response.json().obj;
                 let transformedCars: Car[] = [];
@@ -30,7 +30,7 @@ export class BookingService {
          .catch((err: Response) => Observable.throw(err.json()));
     }
     getBookings() {
-        return this.http.get('http://localhost:3000/bookings')
+        return this.http.get('https://idealautomotive.com.au/bookings')
             .map((response: Response) => {
                 const bookings = response.json().obj;
                 let transformedBookings: Booking[] = [];
@@ -45,7 +45,7 @@ export class BookingService {
          .catch((error: Response) => Observable.throw(error.json()));
     }
     getBooking(id:string) {
-      const url = 'http://localhost:3000/bookings/' + id;
+      const url = 'https://idealautomotive.com.au/bookings/' + id;
         return this.http.get(url)
             .map((response: Response) => {
                 const booking = response.json().obj;
@@ -57,7 +57,7 @@ export class BookingService {
          .catch((error: Response) => Observable.throw(error.json()));
     }
     getCustomerBooking(owner:string, status:string) {
-      const url = 'http://localhost:3000/bookings/' + owner + '/' + status;
+      const url = 'https://idealautomotive.com.au/bookings/' + owner + '/' + status;
         return this.http.get(url)
             .map((response: Response) => {
                 const bookings = response.json().obj;
@@ -72,7 +72,7 @@ export class BookingService {
          .catch((err: Response) => Observable.throw(err.json()));
     }
     getCustomers() {
-        return this.http.get('http://localhost:3000/customers')
+        return this.http.get('https://idealautomotive.com.au/customers')
             .map((response: Response) => {
                 const customers = response.json().obj;
                 let transformedCustomers: Customer[] = [];
@@ -86,7 +86,7 @@ export class BookingService {
          .catch((error: Response) => Observable.throw(error.json()));
     }
     getExistingCustomer(email:string) {
-        const url = 'http://localhost:3000/customers/' + email;
+        const url = 'https://idealautomotive.com.au/customers/' + email;
         return this.http.get(url)
             .map((response: Response) => {
                 const customer = response.json();
@@ -102,7 +102,7 @@ export class BookingService {
          .catch((err: Response) => Observable.throw(err));
     }
     getCarDetails(plate:string) {
-        const url = 'http://localhost:3000/details/' + plate;
+        const url = 'https://idealautomotive.com.au/details/' + plate;
         return this.http.get(url)
             .map((response: Response) => {
                 const detail = response.json();
@@ -116,45 +116,45 @@ export class BookingService {
     }
     //-------------------------------------------------------------------
     addCustomer(result:Customer){
-        const url = 'http://localhost:3000/customers';
+        const url = 'https://idealautomotive.com.au/customers';
         let body = JSON.stringify(result);
         return this.http.post(url, body, {headers: this.headers})
           .map(response => response.json());
     }
     addCarDetails(result:CarDetails){
-        const url = 'http://localhost:3000/details';
+        const url = 'https://idealautomotive.com.au/details';
         let body = JSON.stringify(result);
         return this.http.post(url, body, {headers: this.headers})
           .map(response => response.json());
     }
     addBooking(result:Booking){
-        const url = 'http://localhost:3000/bookings';
+        const url = 'https://idealautomotive.com.au/bookings';
         let body = JSON.stringify(result);
         return this.http.post(url, body, {headers: this.headers})
           .map(response => response.json());
     }
     addCar(result:Car){
-        const url = 'http://localhost:3000/cars';
+        const url = 'https://idealautomotive.com.au/cars';
         let body = JSON.stringify(result);
         return this.http.post(url, body, {headers: this.headers})
           .map(response => response.json());
     }
     updateCustomer(customer: Customer) {
-        const url = 'http://localhost:3000/customers/' + customer.id;
+        const url = 'https://idealautomotive.com.au/customers/' + customer.id;
         let body = JSON.stringify(customer);
         return this.http.patch(url, body, {headers: this.headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
     updateCarDetails(carDetail: CarDetails) {
-        const url = 'http://localhost:3000/details/';
+        const url = 'https://idealautomotive.com.au/details/';
         let body = JSON.stringify(carDetail);
         return this.http.patch(url + carDetail.id, body, {headers: this.headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
     updateBooking(booking: Booking) {
-        const url = 'http://localhost:3000/bookings/';
+        const url = 'https://idealautomotive.com.au/bookings/';
         let body = JSON.stringify(booking);
         return this.http.patch(url + booking.id, body, {headers: this.headers})
             .map((response: Response) => response.json())
@@ -162,7 +162,7 @@ export class BookingService {
     }
 //----------------------------------------------------------------------------------------
     deleteBooking(booking: Booking ) {
-        return this.http.delete('http://localhost:3000/bookings/' + booking.id)
+        return this.http.delete('https://idealautomotive.com.au/bookings/' + booking.id)
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
