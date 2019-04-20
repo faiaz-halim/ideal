@@ -10,12 +10,12 @@ import { Message } from './message.model';
 
 @Injectable()
 export class ContactService {
-  baseUrl: string = 'https://idealautomotive.com.au';
+  baseUrl: string = 'https://idealauto.com.au';
   headers = new Headers({'Content-Type': 'application/json'});
   constructor(private http: Http ) {}
 
   addMessage(message:Message){
-      const url = 'https://idealautomotive.com.au/messages';
+      const url = 'https://idealauto.com.au/messages';
       let body = JSON.stringify(message);
       return this.http.post(url, body, {headers: this.headers})
         .map(response => response.json());
