@@ -11,7 +11,7 @@ import { CarDetails } from './CarDetails.model';
 
 @Injectable()
 export class BookingService {
-    baseUrl: string = 'https://idealautomotive.com.au';
+    baseUrl: string = 'https://idealauto.com.au';
     headers = new Headers({'Content-Type': 'application/json'});
     customer : Customer;
     constructor(private http: Http) {}
