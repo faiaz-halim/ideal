@@ -21,7 +21,7 @@ export class ReviewsService {
         .map(response => response.json() as Review[]);
   }*/
   getReviews(){
-      const url = 'https://idealautomotive.com.au/xreviews';
+      const url = 'https://idealauto.com.au/xreviews';
       return this.http.get(url)
         .map((response: Response) => {
             const reviews = response.json().obj;
@@ -35,7 +35,7 @@ export class ReviewsService {
         })
   }
   getCars() {
-      return this.http.get('https://idealautomotive.com.au/cars')
+      return this.http.get('https://idealauto.com.au/cars')
           .map((response: Response) => {
               const cars = response.json().obj;
               let transformedCars: Car[] = [];
@@ -49,7 +49,7 @@ export class ReviewsService {
   }
   //----------------------------------------------------------
   addReview(result:Review){
-      const url = 'https://idealautomotive.com.au/xreviews';
+      const url = 'https://idealauto.com.au/xreviews';
       let body = JSON.stringify(result);
       return this.http.post(url, body, {headers: this.headers})
         .map(response => response.json());
